@@ -23,8 +23,8 @@ public class Categoria {
     }
     /**
      * se crea el objeto con parametros 
-     * @param idCategoria
-     * @param nombreCategoria 
+     * @param idCategoria id de la categoria
+     * @param nombreCategoria nombre de la categoria 
      */
     public Categoria(int idCategoria, String nombreCategoria){
         /**
