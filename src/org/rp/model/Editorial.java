@@ -25,10 +25,10 @@ public class Editorial {
     }
     /**
      * se ponen los datos o parametros al objeto 
-     * @param nit
-     * @param nombreEditorial
-     * @param telefonoEditorial
-     * @param direccionEditorial 
+     * @param nit nit de la editorial quien producio e libro 
+     * @param nombreEditorial nombre de la editorial 
+     * @param telefonoEditorial telefono de la editorial 
+     * @param direccionEditorial direccion de la editorial 
      */
     public Editorial(String nit, String nombreEditorial, String telefonoEditorial, String direccionEditorial){
         this.nit = nit;
