@@ -71,5 +71,13 @@ public class Cliente {
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
+    /**
+     * nos devuelve el apellido del cliente y el nombre 
+     * @return 
+     */
+      @Override
+    public String toString() {
+        return nombreCliente + "" + apellidoCliente;
+    }
     
 }
