@@ -53,6 +53,13 @@ public class Categoria {
     public void setNombreCategoria(String nombreCategoria) {
         this.nombreCategoria = nombreCategoria;
     }
-    
+    /**
+     * nos regresa el nombre de la categoria
+     * @return 
+     */
+    @Override
+    public String toString() {
+        return nombreCategoria;
+    }
     
 }
