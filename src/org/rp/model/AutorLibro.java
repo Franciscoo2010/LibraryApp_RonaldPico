@@ -20,6 +20,12 @@ public class AutorLibro {
     /*
     * se le asignanl los valores al parametro 
     */
+    /**
+     * 
+     * @param idAutorLibro id del autor del libro
+     * @param idAutor id del autor 
+     * @param isbn  codigo unico 
+     */
     public AutorLibro(int idAutorLibro, int idAutor, String isbn){
         this.idAutorLibro = idAutorLibro;
         this.idAutor = idAutor;
