@@ -18,5 +18,70 @@ public class DetalleVenta {
     private String isbn;
     private int cantidad;
     private double precio;
-   
+    
+    /**
+     * se creal el objeto con parrametro vacio
+     */
+    public DetalleVenta(){
+        
+    }
+    /**
+     * nos da el objeto con ya los datos incluidos 
+     * @param idDetalleVenta
+     * @param noVenta
+     * @param isbn
+     * @param cantidad
+     * @param precio 
+     */
+    public DetalleVenta(int idDetalleVenta, int noVenta, String isbn, int cantidad, double precio) {
+        this.idDetalleVenta = idDetalleVenta;
+        this.noVenta = noVenta;
+        this.isbn = isbn;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+    /**
+     * se crean los getter and stter para interactuar con los privte  
+     */
+
+    public int getIdDetalleVenta() {
+        return idDetalleVenta;
+    }
+
+    public void setIdDetalleVenta(int idDetalleVenta) {
+        this.idDetalleVenta = idDetalleVenta;
+    }
+
+    public int getNoVenta() {
+        return noVenta;
+    }
+
+    public void setNoVenta(int noVenta) {
+        this.noVenta = noVenta;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
 }
