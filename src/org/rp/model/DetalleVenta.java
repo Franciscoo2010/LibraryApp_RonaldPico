@@ -27,11 +27,11 @@ public class DetalleVenta {
     }
     /**
      * nos da el objeto con ya los datos incluidos 
-     * @param idDetalleVenta
-     * @param noVenta
-     * @param isbn
-     * @param cantidad
-     * @param precio 
+     * @param idDetalleVenta id de la venta 
+     * @param noVenta numero de venta 
+     * @param isbn identificador unico 
+     * @param cantidad cantidade de vehta 
+     * @param precio precio d la venta 
      */
     public DetalleVenta(int idDetalleVenta, int noVenta, String isbn, int cantidad, double precio) {
         this.idDetalleVenta = idDetalleVenta;
