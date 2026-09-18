@@ -22,10 +22,10 @@ public class Cliente {
     }
     /**
      * se crea el objeto con los datos 
-     * @param cui
-     * @param nombreCliente
-     * @param apellidoCliente
-     * @param correoElectronico 
+     * @param cui identificador 
+     * @param nombreCliente nombre del cliente 
+     * @param apellidoCliente apellido del cliente 
+     * @param correoElectronico correo del cliente 
      */
     public Cliente(long cui, String nombreCliente, String apellidoCliente, String correoElectronico) {
         /**
