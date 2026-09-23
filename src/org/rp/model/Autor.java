@@ -38,57 +38,70 @@ public class Autor {
         this.nacionalidad = nacionalidad;
         this.biografia = biografia;
     }
-/*
+ /**
+  
     Id autor nos decuelve el ID
+     * @return nosdevuelve el id del autor 
     */
     public int getIdAutor() {
         return idAutor;
     }
-   /*
+   /**
     definine idAUtor
+     * @param idAutor es el identificador unico del autor 
     */
     public void setIdAutor(int idAutor) {
         this.idAutor = idAutor;
     }
-/*
+/**
      autor nos decuelve el nombre del autor
+     * @return  regresa el nombre del autor 
     */
     public String getNombreAutor() {
         return nombreAutor;
     }
-    /*
+    /**
     establece nombreAutor
+     * @param nombreAutor nombr el autor 
     */
     public void setNombreAutor(String nombreAutor) {
         this.nombreAutor = nombreAutor;
     }
-/*  
+/**
     nos regresa el apellido del autor
+     * @return nos devuelve el apellido del autor 
         */
     public String getApellidoAutor() {
         return apellidoAutor;
     }
 
-    /*
+    /**
      define apelido del autor 
+     * @param apellidoAutor apellido del autor 
     */
     public void setApellidoAutor(String apellidoAutor) {
         this.apellidoAutor = apellidoAutor;
     }
-/*
+/**
      nos devuelve la nacionalidad del autor 
+     * @return      nos devuelve la nacionalidad del autor 
+
     */
     public String getNacionalidad() {
         return nacionalidad;
     }
-/*
+/**
      establece o actualiza na nacionalidad del autor 
+     * @param nacionalidad      establece o actualiza na nacionalidad del autor 
+
     */
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
-/*
+/**
      autor nos regresa la biografia del autor 
+     * @return      autor nos regresa la biografia del autor 
+
     */
     public String getBiografia() {
         return biografia;
@@ -97,7 +110,7 @@ public class Autor {
     public void setBiografia(String biografia) {
         this.biografia = biografia;
     }
-    /*
+    /**
     * nos devuelve el apellido del autor juntos 
     */
     @Override
