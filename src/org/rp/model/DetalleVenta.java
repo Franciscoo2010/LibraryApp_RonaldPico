@@ -5,12 +5,12 @@
 package org.rp.model;
 
 /**
- *
+ * se crea la clase Detalle venta 
+ * se declara el atributo del objeto 
+
  * @author Ronald Pico
  * @version 1.0.0
  * @see org.rp.model.DetalleVenta
- * se crea la clase Detalle venta 
- * se declara el atributo del objeto 
  */
 public class DetalleVenta {
      private int idDetalleVenta;
