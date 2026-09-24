@@ -5,57 +5,69 @@
 package org.rp.model;
 
 /**
- *
+ * se crea la clase Categoria se asignan los atributos 
  * @author Ronald Pico
  * @version 1.0.0
  * @see org.rp.model.Categoria
- * crea la clase 
- * define la variable del objeto 
  */
 public class Categoria {
     private int idCategoria;
     private String nombreCategoria;
-    /*
-    *crea el objeto con parametro vacio
-    */
+
+    /**
+     * Constructor vacio se crea el objeto categoria
+     */
     public Categoria(){
         
     }
+
     /**
-     * se crea el objeto con parametros 
+     *  objeto Categoria con todos sus datos.
+     *  
      * @param idCategoria id de la categoria
      * @param nombreCategoria nombre de la categoria 
      */
     public Categoria(int idCategoria, String nombreCategoria){
-        /**
-         * se asigna los datos a las variables
-         */
         this.idCategoria = idCategoria;
         this.nombreCategoria = nombreCategoria;
         
     }
-/**
- * se crean los getter and setter para interactuar con los provate 
- * @return 
- */
+
+    /**
+     Id categoria nos decuelve el ID
+     * @return nosdevuelve el id de la categoria 
+     */
     public int getIdCategoria() {
         return idCategoria;
     }
 
+    /**
+     definine idCategoria
+     * @param idCategoria es el identificador unico de la categoria 
+     */
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
 
+    /**
+     autor nos decuelve el nombre de la categoria
+     * @return  regresa el nombre de la categoria 
+     */
     public String getNombreCategoria() {
         return nombreCategoria;
     }
 
+    /**
+     establece nombreCategoria
+     * @param nombreCategoria nombre de la categoria 
+     */
     public void setNombreCategoria(String nombreCategoria) {
         this.nombreCategoria = nombreCategoria;
     }
+
     /**
      * nos regresa el nombre de la categoria
-     * @return 
+     * @return nos devuelve el nombre de la categoria 
      */
     @Override
     public String toString() {

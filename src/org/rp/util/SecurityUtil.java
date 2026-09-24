@@ -5,17 +5,19 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- *
+ * crea la clase SecurityUtil que nos da la seguridad y constraseñas
  * @author Ronald pico
  * @see org.rp.util.SecurityUtil
  * @version 1.0.0
- * crea la clase SecurityUtil
- * crea la contrseña  */
+  */
 public class SecurityUtil {
     public static String hashDHA256(String password){
-        /**
-         * hace la condicion y nos regresa con extiyo
-         */
+       /**
+     * Encripta una contraseña en texto plano  SHA-256.
+     * @param password La contraseña .
+     * @return El string resultante del hash SHA-256  .
+     * @throws  si no esta disponible nos na una exception .
+     */
         try{
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] encodedhash = digest.digest(password.getBytes(java.nio.charset.StandardCharsets.UTF_8));
