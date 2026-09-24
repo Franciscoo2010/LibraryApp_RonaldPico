@@ -73,7 +73,7 @@ public class Principal extends Application {
 
     /**
      *inicia el programa 
-     * @param args
+     *@param args Argumentos de la línea de comandos
      */
     public static void main(String[] args) {
         log.info("Se inicio el programa");
@@ -84,7 +84,7 @@ public class Principal extends Application {
     /**
      * inica la vista el java fx
      * @param escenarioPrincipal
-     * @throws Exception si pasa un error 
+     * @throws Exception si pasa un error al iniciar
      */ 
     @Override
     public void start(Stage escenarioPrincipal) throws Exception {

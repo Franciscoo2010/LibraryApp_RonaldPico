@@ -5,12 +5,10 @@
 package org.rp.model;
 
 /**
- *
+ * se crea la clase Editorial se asignan los atributos 
  * @author Ronald Pico
- * @see org.rp.model.Editorial
  * @version 1.0.0
- * se creo la clase editorial
- * se definio los atributos 
+ * @see org.rp.model.Editorial
  */
 public class Editorial {
     
@@ -18,13 +16,16 @@ public class Editorial {
     private String nombreEditorial;
     private String telefonoEditorial;
     private String direccionEditoria;
-/**
- * se crea el objeto con parametro vacio
- */
+
+    /**
+     * Constructor vacio se crea el objeto editorial
+     */
     public Editorial() {
     }
+
     /**
-     * se ponen los datos o parametros al objeto 
+     *  objeto Editorial con todos sus datos.
+     *  
      * @param nit nit de la editorial quien producio e libro 
      * @param nombreEditorial nombre de la editorial 
      * @param telefonoEditorial telefono de la editorial 
@@ -34,46 +35,76 @@ public class Editorial {
         this.nit = nit;
         this.nombreEditorial = nombreEditorial;
         this.telefonoEditorial = telefonoEditorial;
-        this.direccionEditoria = direccionEditoria;   
+        this.direccionEditoria = direccionEditorial;    
     }
+
     /**
-     * se crean los getter and setter para poder interactuar con los private
-     * @return 
+     Id nit nos decuelve el ID
+     * @return nosdevuelve el nit de la editorial 
      */
     public String getNit() {
         return nit;
     }
 
+    /**
+     definine nit
+     * @param nit es el nit de la editorial 
+     */
     public void setNit(String nit) {
         this.nit = nit;
     }
 
+    /**
+     autor nos decuelve el nombre de la editorial
+     * @return  regresa el nombre de la editorial 
+     */
     public String getNombreEditorial() {
         return nombreEditorial;
     }
 
+    /**
+     establece nombreEditorial
+     * @param nombreEditorial nombre de la editorial 
+     */
     public void setNombreEditorial(String nombreEditorial) {
         this.nombreEditorial = nombreEditorial;
     }
 
+    /**
+     nos regresa el telefono de la editorial
+     * @return nos devuelve el telefono de la editorial 
+     */
     public String getTelefonoEditorial() {
         return telefonoEditorial;
     }
 
+    /**
+     define telefono de la editorial 
+     * @param telefonoEditorial telefono de la editorial 
+     */
     public void setTelefonoEditorial(String telefonoEditorial) {
         this.telefonoEditorial = telefonoEditorial;
     }
 
+    /**
+     nos devuelve la direccion de la editorial 
+     * @return      nos devuelve la direccion de la editorial 
+     */
     public String getDireccionEditoria() {
         return direccionEditoria;
     }
 
+    /**
+     establece o actualiza la direccion de la editorial 
+     * @param direccionEditoria      establece o actualiza la direccion de la editorial 
+     */
     public void setDireccionEditoria(String direccionEditoria) {
         this.direccionEditoria = direccionEditoria;
     }
+
     /**
      * nos devuelve el nombre de la editorial 
-     * @return 
+     * @return nos devuelve el nombre de la editorial 
      */
     @Override
     public String toString (){
