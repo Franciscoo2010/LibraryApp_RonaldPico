@@ -8,23 +8,27 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import org.rp.dao.UsuarioDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.Usuario;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase UsuarioDaoImpl y implementa la interface UsuarioDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.UsuarioDAOImpl
  */
 public class UsuarioDAOImpl implements UsuarioDAO {
         
 
     /**
-     *
-     * @param usernarme
-     * @param passwordHash
-     * @return
+     * Permite iniciar sesión a un usuario mediante su nombre de usuario y contraseña
+     * @param usernarme nombre de usuario
+     * @param passwordHash contraseña cifrada
+     * @return el objeto Usuario si las credenciales son correctas, o null en caso contrario
      */
     @Override
     public Usuario iniciarSesion(String usernarme, String passwordHash) {
@@ -53,10 +57,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
 
+
     /**
-     *
-     * @param usuario
-     * @return
+     * Crea un nuevo usuario en la base de datos
+     * @param usuario objeto usuario a registrar
+     * @return true si se insertó correctamente, false en caso contrario
      */
     @Override
     public boolean crearUsuario(Usuario usuario) {
@@ -78,9 +83,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 
     /**
-     *
-     * @param usuario
-     * @return
+     * Actualiza los datos de un usuario existente
+     * @param usuario objeto usuario con los datos actualizados
+     * @return true si se actualizó correctamente, false en caso contrario
      */
     @Override
     public boolean actualizarUsuario(Usuario usuario) {
@@ -101,12 +106,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         }
     }
 
-
     /**
-     *
-     * @param idUsuario
-     * @param passwordHash
-     * @return
+     * Cambia la contraseña de un usuario específico
+     * @param idUsuario identificador unico del usuario
+     * @param passwordHash nueva contraseña cifrada
+     * @return true si se actualizó la contraseña correctamente, false en caso contrario
      */
     @Override
     public boolean cambiarPassword(int idUsuario, String passwordHash) {
@@ -121,12 +125,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             throw new DaoException("Error al cambiar password: " + e.getMessage(), e);
         }
     }
-
-
     /**
-     *
-     * @param idUsuario
-     * @return
+     * Desactiva un usuario cambiando su estado
+     * @param idUsuario identificador unico del usuario
+     * @return true si se desactivó correctamente, false en caso contrario
      */
     @Override
     public boolean desactivarUsuario(int idUsuario) {
@@ -142,10 +144,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
 
+
     /**
-     *
-     * @param idUsuario
-     * @return
+     * Elimina un usuario de la base de datos
+     * @param idUsuario identificador unico del usuario
+     * @return true si se eliminó correctamente, false en caso contrario
      */
     @Override
     public boolean eliminarUsuario(int idUsuario) {
@@ -163,10 +166,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
    
 
     /**
-     *
-     * @return
+     * Nos devuelve la lista de todos los usuarios registrados
+     * @return una lista con todos los usuarios
      */
-    @Override
+   @Override
     public ArrayList<Usuario> listarTodosUsuarios() {
         ArrayList<Usuario> lista = new ArrayList<>();
         String sql = "{call sp_listar_todos_usuarios()}";
@@ -193,12 +196,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 
     /**
-     *
-     * @param idUsuario
-     * @return
+     * Busca un usuario por su identificador único
+     * @param idUsuario identificador unico del usuario
+     * @return el objeto Usuario encontrado o null
      */
-    @Override
-    public Usuario obtenerUsuarioPorId(int idUsuario) {
+        @Override
+        public Usuario obtenerUsuarioPorId(int idUsuario) {
         Usuario usuario = null;
         String sql = "{call sp_obtener_usuario_por_id(?)}";
         try (Connection conexion = Conexion.getInstancia().conectar();

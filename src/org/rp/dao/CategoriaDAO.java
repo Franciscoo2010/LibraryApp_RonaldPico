@@ -4,6 +4,8 @@
  */
 package org.rp.dao;
 
+import org.rp.model.Categoria;
+
 /**
  *
  * @author informatica

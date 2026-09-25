@@ -10,14 +10,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.rp.dao.LibroDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.Libro;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase LibroDaoImpl y imlplementa la interface LibroDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.LibroDAOImpl
  */
 public class LibroDAOImpl implements LibroDAO {
+    
+    /**
+     * nos devuelve la lista 
+     * @return nos regresa la lista con todos los libros 
+     */
      @Override
     public ArrayList<Libro> listarTodos() {
         ArrayList<Libro> lista = new ArrayList<>();
@@ -42,6 +50,11 @@ public class LibroDAOImpl implements LibroDAO {
         return lista;
     }
 
+    /**
+     * Busqueda por id 
+     * @param isbn identificador unico del libro
+     * @return nos regresa el libro encontrado
+     */
     @Override
     public Libro buscarPorId(String isbn) {
         Libro l = null;
@@ -67,6 +80,11 @@ public class LibroDAOImpl implements LibroDAO {
         return l;
     }
 
+    /**
+     * Crea un libro 
+     * @param libro objeto libro a registrar 
+     * @return true si se insertó correctamente, false en caso contrario 
+     */
     @Override
     public boolean crear(Libro libro) {
         String sql = "{call sp_crear_libro(?,?,?,?,?,?,?)}";
@@ -85,10 +103,15 @@ public class LibroDAOImpl implements LibroDAO {
         }
     }
 
+    /**
+     * Actualiza el libro 
+     * @param libro objeto libro con los datos actualizados 
+     * @return true si se actualizó correctamente, false en caso contrario 
+     */
     @Override
     public boolean actualizar(Libro libro) {
         String sql = "{call sp_actualizar_libro(?,?,?,?,?,?,?)}";
-        try (Connection conexion = Coonexion.getInstancia().conectar();
+        try (Connection conexion = Conexion.getInstancia().conectar();
                 CallableStatement consulta = conexion.prepareCall(sql)) {
             consulta.setString(1, libro.getIsbn());
             consulta.setString(2, libro.getTitulo());
@@ -103,10 +126,15 @@ public class LibroDAOImpl implements LibroDAO {
         }
     }
 
+    /**
+     * Elimina un libro de la base de datos 
+     * @param isbn identificador unico del libro 
+     * @return true si se eliminó correctamente, false en caso contrario 
+     */
     @Override
     public boolean eliminar(String isbn) {
         String sql = "{call sp_eliminar_libro(?)}";
-        try (Connection conexion = conexion.getInstancia().conectar();
+        try (Connection conexion = Conexion.getInstancia().conectar();
             CallableStatement consulta = conexion.prepareCall(sql)) {
             consulta.setString(1, isbn);
             return consulta.executeUpdate() > 0;

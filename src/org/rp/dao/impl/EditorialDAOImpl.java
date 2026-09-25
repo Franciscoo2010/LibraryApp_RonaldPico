@@ -10,14 +10,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.rp.dao.EditorialDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.Editorial;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author informatica
+ * se crea la clase EditorialDaoImpl y imlplementa la interface EditorialDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.EditorialDAOImpl
  */
 public class EditorialDAOImpl implements EditorialDAO {
+
+    /**
+     *nos devuelve la lista 
+     * @return nos regresa la lista con tos lo editoriales 
+     */
     @Override
     public ArrayList<Editorial> listarTodos() {
         ArrayList<Editorial> lista = new ArrayList<>();
@@ -39,6 +47,11 @@ public class EditorialDAOImpl implements EditorialDAO {
         return lista;
     }
 
+    /**
+     *Busqueda por id 
+     * @param nit identificador unico
+     * @return nos regresa la editorial
+     */
     @Override
     public Editorial buscarPorId(String nit) {
         Editorial e = null;
@@ -61,6 +74,11 @@ public class EditorialDAOImpl implements EditorialDAO {
         return e;
     }
 
+    /**
+     * Crea una editorial 
+     * @param editorial empresa que publica el libro 
+     * @return nos devuelve la nueva editorial 
+     */
     @Override
     public boolean crear(Editorial editorial) {
         String sql = "{call sp_crear_editorial(?,?,?,?)}";
@@ -76,6 +94,11 @@ public class EditorialDAOImpl implements EditorialDAO {
         }
     }
 
+    /**
+     *Actualiza la editorial 
+     * @param editorial empresa que publica el libro 
+     * @return nos devuelve la actualizacion de la editorial ingresada 
+     */
     @Override
     public boolean actualizar(Editorial editorial) {
         String sql = "{call sp_actualizar_editorial(?,?,?,?)}";
@@ -91,6 +114,11 @@ public class EditorialDAOImpl implements EditorialDAO {
         }
     }
 
+    /**
+     *Elimina una editorial de la lista 
+     * @param nit identificador unico de editorial 
+     * @return la lista sin la editorial eliminada 
+     */
     @Override
     public boolean eliminar(String nit) {
         String sql = "{call sp_eliminar_editorial(?)}";

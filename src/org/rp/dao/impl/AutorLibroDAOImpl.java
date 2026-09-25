@@ -10,16 +10,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.rp.dao.AutorLibroDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.AutorLibro;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author 
+ * Se crea la clase AutorLibroDaoImpl e implementa la interfaz AutorLibroDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ * @see org.rp.dao.impl.AutorLibroDAOImpl
  */
 public class AutorLibroDAOImpl implements AutorLibroDAO {
+
+    /**
+     * Nos devuelve la lista 
+     * @return Nos regresa la lista con todos los autores_libro 
+     */
     @Override
-    
     public ArrayList<AutorLibro> listarTodos() {
         ArrayList<AutorLibro> lista = new ArrayList<>();
         String sql = "{call sp_listarautoreslibro()}";
@@ -39,6 +46,11 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         return lista;
     }
 
+    /**
+     * Búsqueda por id 
+     * @param idAutorLibro Identificador único
+     * @return Nos regresa el autor_libro
+     */
     @Override
     public AutorLibro buscarPorId(Integer idAutorLibro) {
         AutorLibro al = null;
@@ -49,7 +61,7 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
             try (ResultSet rs = consulta.executeQuery()) {
                 if (rs.next()) {
                     al = new AutorLibro();
-                    al.setIdAutorLibro(rs.getInt("id_autor_libr"));
+                    al.setIdAutorLibro(rs.getInt("id_autor_libro"));
                     al.setIdAutor(rs.getInt("id_autor"));
                     al.setIsbn(rs.getString("isbn"));
                 }
@@ -60,6 +72,11 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         return al;
     }
 
+    /**
+     * Crea un autor_libro 
+     * @param autorLibro Relación entre autor y libro 
+     * @return Nos devuelve el nuevo autor_libro 
+     */
     @Override
     public boolean crear(AutorLibro autorLibro) {
         String sql = "{call sp_insertarautorlibro(?,?)}";
@@ -71,9 +88,13 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         } catch (SQLException e) {
             throw new DaoException("Error al insertar autor_libro: " + e.getMessage(), e);
         }
-       
     }
 
+    /**
+     * Actualiza el autor_libro 
+     * @param autorLibro Relación entre autor y libro 
+     * @return Nos devuelve la actualización del autor_libro ingresado 
+     */
     @Override
     public boolean actualizar(AutorLibro autorLibro) {
         String sql = "{call sp_actualizarautorlibro(?,?,?)}";
@@ -86,9 +107,13 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         } catch (SQLException e) {
             throw new DaoException("Error al actualizar autor_libro: " + e.getMessage(), e);
         }
-        
     }
 
+    /**
+     * Elimina un autor_libro de la lista 
+     * @param idAutorLibro Identificador único de autor_libro 
+     * @return La lista sin el autor_libro eliminado 
+     */
     @Override
     public boolean eliminar(Integer idAutorLibro) {
         String sql = "{call sp_eliminarautorlibro(?)}";
@@ -97,11 +122,7 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
             consulta.setInt(1, idAutorLibro);
             return consulta.executeUpdate() > 0;
         } catch (SQLException e) {
-            throw new DaoException("Eror al eliminar autor_libro: " + e.getMessage(), e);
+            throw new DaoException("Error al eliminar autor_libro: " + e.getMessage(), e);
         }
-        
     }
-    
 }
-
-   

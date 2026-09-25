@@ -4,24 +4,35 @@
  */
 package org.rp.dao.impl;
 
+import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.rp.dao.FacturaDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.LineaFactura;
+import org.rp.util.Conexion;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase FacturaDaoImpl y imlplementa la interface FacturaDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.FacturaDAOImpl
  */
 public class FacturaDAOImpl implements FacturaDAO {
+
+    /**
+     * Busca la factura y sus líneas asociadas por número de venta
+     * @param noVenta número de venta identificador
+     * @return nos regresa la lista de líneas de la factura
+     */
     @Override
     public ArrayList<LineaFactura> buscarFactura(int noVenta) {
         ArrayList<LineaFactura> lista = new ArrayList<>();
         String sql = "{call sp_buscar_factura(?)}";
         try (Connection conexion = Conexion.getInstancia().conectar();
-                                CallableStatement consulta = conexion.prepareCall(sql)) {
+                            CallableStatement consulta = conexion.prepareCall(sql)) {
             consulta.setInt(1, noVenta);
             try (ResultSet rs = consulta.executeQuery()) {
                 while (rs.next()) {

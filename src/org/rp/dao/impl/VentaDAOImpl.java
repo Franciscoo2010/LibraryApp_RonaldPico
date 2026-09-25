@@ -11,20 +11,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.rp.dao.DetalleVentaDAO;
 import org.rp.dao.VentaDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.DetalleVenta;
 import org.rp.model.LineaVenta;
+import org.rp.model.Venta;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase VentaDaoImpl y implementa la interface VentaDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.VentaDAOImpl
  */
 public class VentaDAOImpl implements VentaDAO {
         private final DetalleVentaDAO detalleVentaDAO = new DetalleVentaDAOImpl();
-/**
-     *
-     * @return
+
+    /**
+     * nos devuelve la lista de todas las ventas registradas
+     * @return nos regresa la lista con todas las ventas
      */
     @Override
     public ArrayList<Venta> listarTodos() {
@@ -49,9 +55,9 @@ public class VentaDAOImpl implements VentaDAO {
     }
 
     /**
-     *
-     * @param noVenta
-     * @return
+     * Busca una venta por su número identificador único
+     * @param noVenta número de venta identificador
+     * @return nos regresa la venta encontrada o null
      */
     @Override
     public Venta buscarPorId(Integer noVenta) {
@@ -77,9 +83,9 @@ public class VentaDAOImpl implements VentaDAO {
     }
 
     /**
-     *
-     * @param venta
-     * @return
+     * Crea un registro de venta básico
+     * @param venta objeto venta a registrar
+     * @return true si se insertó correctamente, false en caso contrario
      */
     @Override
     public boolean crear(Venta venta) {
@@ -96,9 +102,9 @@ public class VentaDAOImpl implements VentaDAO {
     }
 
     /**
-     *
-     * @param venta
-     * @return
+     * Actualiza los datos de una venta existente
+     * @param venta objeto venta con los datos actualizados
+     * @return true si se actualizó correctamente, false en caso contrario
      */
     @Override
     public boolean actualizar(Venta venta) {
@@ -122,10 +128,10 @@ public class VentaDAOImpl implements VentaDAO {
 
  
     /**
-     *
-     * @param venta
-     * @param lineas
-     * @return
+     * Realiza el proceso completo de creación de una venta con sus líneas de detalle y descuento de stock
+     * @param venta objeto venta principal
+     * @param lineas lista de líneas de venta asociadas
+     * @return el número de la venta generada o -1 si ocurrió un error
      */
     @Override
     public int crearVenta(Venta venta, List<LineaVenta> lineas) {
@@ -160,6 +166,12 @@ public class VentaDAOImpl implements VentaDAO {
         return noVenta;
     }
 
+    /**
+     * Descuenta stock de un libro a partir de una venta realizada
+     * @param isbn identificador único del libro
+     * @param cantidad cantidad de unidades a descontar
+     * @return true si se actualizó el stock correctamente, false en caso contrario
+     */
     private boolean descontarStock(String isbn, int cantidad) {
         String sql = "{call sp_descontar_stock(?,?)}";
         try (Connection conexion = Conexion.getInstancia().conectar();
@@ -173,9 +185,9 @@ public class VentaDAOImpl implements VentaDAO {
     }
 
     /**
-     *
-     * @param noVenta
-     * @return
+     * Elimina una venta por su número identificador
+     * @param noVenta número de venta identificador
+     * @return true si se eliminó correctamente, false en caso contrario
      */
     @Override
     public boolean eliminar(Integer noVenta) {
@@ -188,6 +200,4 @@ public class VentaDAOImpl implements VentaDAO {
             throw new DaoException("Error al eliminar venta: " + e.getMessage(), e);
         }
     }
-}
-
 }

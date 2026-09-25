@@ -9,34 +9,47 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import org.rp.dao.CategoriaDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.Categoria;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author informatica
+ * se crea la clase CategoriaDaoImpl y imlplementa la interface CategoriaDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.CategoriaDAOImpl
  */
-public class CategoriaDAOImpl {
-      @Override
+public class CategoriaDAOImpl implements CategoriaDAO {
+
+    /**
+     *nos devuelve la lista 
+     * @return nos regresa la lista con tos lo categorias 
+     */
+    @Override
     public ArrayList<Categoria> listarTodos() {
-    ArrayList<Categoria> lista = new ArrayList<>();
-    String sql = "{call sp_listarcategorias()}";
+        ArrayList<Categoria> lista = new ArrayList<>();
+        String sql = "{call sp_listarcategorias()}";
         try (Connection conexion = Conexion.getInstancia().conectar();
             CallableStatement consulta = conexion.prepareCall(sql);
             ResultSet rs = consulta.executeQuery()) {
-            while (rs.next())  {
-            Categoria c = new Categoria();
-            c.setIdCategoria(rs.getInt("id_categoria"));
-            c.setNombreCategoria(rs.getString("nombre_categoria"));
+            while (rs.next()) {
+                Categoria c = new Categoria();
+                c.setIdCategoria(rs.getInt("id_categoria"));
+                c.setNombreCategoria(rs.getString("nombre_categoria"));
                 lista.add(c);
-            
             }
         } catch (SQLException e) {
-          throw new DaoException("Error al listar categorias: " + e.getMessage(), e);
+            throw new DaoException("Error al listar categorias: " + e.getMessage(), e);
         }
         return lista;
     }
 
+    /**
+     *Busqueda por id 
+     * @param idCategoria identificador unico
+     * @return nos regresa la categoria
+     */
     @Override
     public Categoria buscarPorId(Integer idCategoria) {
         Categoria c = null;
@@ -52,11 +65,16 @@ public class CategoriaDAOImpl {
                 }
             }
         } catch (SQLException e) {
-          throw new DaoException("Error al buscar categoria: " + e.getMessage(), e);
+            throw new DaoException("Error al buscar categoria: " + e.getMessage(), e);
         }
         return c;
     }
 
+    /**
+     * Crea una categoria 
+     * @param categoria categoria del libro 
+     * @return nos devuelve la nueva categoria 
+     */
     @Override
     public boolean crear(Categoria categoria) {
         String sql = "{call sp_insertarcategoria(?)}";
@@ -65,10 +83,15 @@ public class CategoriaDAOImpl {
             consulta.setString(1, categoria.getNombreCategoria());
             return consulta.executeUpdate() > 0;
         } catch (SQLException e) {
-          throw new DaoException("Error al insertar categoria: " + e.getMessage(), e);
+            throw new DaoException("Error al insertar categoria: " + e.getMessage(), e);
         }
     }
 
+    /**
+     *Actualiza la categoria 
+     * @param categoria categoria del libro 
+     * @return nos devuelve la actualizacion de la categoria ingresada 
+     */
     @Override
     public boolean actualizar(Categoria categoria) {
         String sql = "{call sp_actualizarcategoria(?,?)}";
@@ -78,22 +101,24 @@ public class CategoriaDAOImpl {
             consulta.setString(2, categoria.getNombreCategoria());
             return consulta.executeUpdate() > 0;
         } catch (SQLException e) {
-          throw new DaoException("Error al actualizar categoria: " + e.getMessage(), e);
+            throw new DaoException("Error al actualizar categoria: " + e.getMessage(), e);
         }
     }
 
+    /**
+     *Elimina una categoria de la lista 
+     * @param idCategoria identificador unico de categoria 
+     * @return la lista sin la categoria eliminada 
+     */
     @Override
     public boolean eliminar(Integer idCategoria) {
-        String sql = "{call sp_eliminarcategoria (?)}";
+        String sql = "{call sp_eliminarcategoria(?)}";
         try (Connection conexion = Conexion.getInstancia().conectar();
             CallableStatement consulta = conexion.prepareCall(sql)) {
             consulta.setInt(1, idCategoria);
-        return consulta.executeUpdate() > 0;
-            } catch (SQLException e) {
+            return consulta.executeUpdate() > 0;
+        } catch (SQLException e) {
             throw new DaoException("Error al eliminar categoria: " + e.getMessage(), e);
         }
-        
     }
 }
-
-

@@ -65,4 +65,20 @@ public class LineaVenta {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+        public String getIsbn() {
+        return libro.getIsbn();
+    }
+
+    public String getTitulo() {
+        return libro.getTitulo();
+    }
+
+    public double getPrecio() {
+        return libro.getPrecio();
+    }
+
+    public double getSubtotal() {
+        return libro.getPrecio() * cantidad;
+    }
 }
+

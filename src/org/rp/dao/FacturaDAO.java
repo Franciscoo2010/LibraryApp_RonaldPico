@@ -12,5 +12,11 @@ import org.rp.model.LineaFactura;
  * @author USUARIO
  */
 public interface FacturaDAO {
+
+    /**
+     *
+     * @param noVenta
+     * @return
+     */
     ArrayList<LineaFactura> buscarFactura(int noVenta);
 }

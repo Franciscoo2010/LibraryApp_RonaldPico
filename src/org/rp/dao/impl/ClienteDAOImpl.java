@@ -9,14 +9,23 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import org.rp.dao.ClienteDAO;
+import org.rp.execption.DaoException;
 import org.rp.model.Cliente;
 import org.rp.util.Conexion;
 
 /**
- *
- * @author informatica
+ * se crea la clase ClienteDaoImpl y imlplementa la interface ClienteDAO
+ * @author Ronald Pico
+ * @version 1.0.0
+ *@see org.rp.dao.impl.ClienteDAOImpl
  */
-public class ClienteDAOImpl  {
+public class ClienteDAOImpl implements ClienteDAO {
+    
+    /**
+     *nos devuelve la lista 
+     * @return nos regresa la lista con tos lo clientes 
+     */
     @Override
     public ArrayList<Cliente> listarTodos() {
     ArrayList<Cliente> lista = new ArrayList<> ();
@@ -34,6 +43,12 @@ public class ClienteDAOImpl  {
         }  
         return lista;
         }
+        
+    /**
+     *Busqueda por id 
+     * @param cui identificador unico
+     * @return nos regresa el cliente
+     */
     @Override
     public Cliente buscarPorId(Long cui) {
         Cliente c = null;
@@ -54,6 +69,12 @@ public class ClienteDAOImpl  {
         }
         return c;
     }
+    
+    /**
+     * Crea un cliente 
+     * @param cliente persona que compra el libro 
+     * @return nos devuelve el nuevo cliente 
+     */
     @Override
     public boolean crear(Cliente cliente) {
         String sql = "{call sp_insertarcliente(?,?,?,?)}";
@@ -63,11 +84,17 @@ public class ClienteDAOImpl  {
             consulta.setString(3, cliente.getApellidoCliente());
             consulta.setString(4, cliente.getCorreoElectronico());
             return consulta.executeUpdate() > 0;
-        }   catch (SQLException e) {
+        }    catch (SQLException e) {
             throw new DaoException("Error al insertar cliente: " + e.getMessage(), e);
         }
     }
-      @Override
+      
+    /**
+     *Actualiza el cliente 
+     * @param cliente persona que compra el libro 
+     * @return nos devuelve la actualizacion del cliente ingresado 
+     */
+    @Override
     public boolean actualizar(Cliente cliente) {
         String sql = "{call sp_actualizarcliente(?,?,?,?)}";
         try (Connection conexion = Conexion.getInstancia().conectar();
@@ -81,6 +108,12 @@ public class ClienteDAOImpl  {
             throw new DaoException("Error al actualizar cliente: " + e.getMessage(), e);
         }
     }
+    
+    /**
+     *Elimina un cliente de la lista 
+     * @param cui identificador unico de cliente 
+     * @return la lista sin el cliente eliminado 
+     */
     @Override
     public boolean eliminar(Long cui) {
         String sql = "{call sp_eliminarcliente(?)}";
@@ -90,8 +123,7 @@ public class ClienteDAOImpl  {
         } catch (SQLException e) {
             throw new DaoException("Error al eliminar cliente: " + e.getMessage(), e);
         }
-    } 
+    }    
     
-}    
-
+}
 
