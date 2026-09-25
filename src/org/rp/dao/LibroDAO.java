@@ -7,8 +7,8 @@ package org.rp.dao;
 import org.rp.model.Libro;
 
 /**
- *
- * @author USUARIO
+ * se crea libro dao con la extension Crud
+ * @author Ronald pico
  */
 public interface LibroDAO extends Crud<Libro, String>{
     

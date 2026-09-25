@@ -7,8 +7,8 @@ package org.rp.dao;
 import org.rp.model.Editorial;
 
 /**
- *
- * @author informatica
+ * se crea la clase EditorialDao
+ * @author Ronald Pico
  */
 public interface EditorialDAO extends Crud<Editorial, String>{
     

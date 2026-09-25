@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import org.rp.model.LineaFactura;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase factura 
+ * @author Ronald Pico
  */
 public interface FacturaDAO {
 
     /**
      *
-     * @param noVenta
-     * @return
+     * @param noVenta numero de vantas 
+     * @return nos devuelve el nunmero de venta
+     *
      */
     ArrayList<LineaFactura> buscarFactura(int noVenta);
 }

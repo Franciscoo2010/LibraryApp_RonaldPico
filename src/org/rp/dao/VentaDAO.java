@@ -9,15 +9,15 @@ import org.rp.model.LineaVenta;
 import org.rp.model.Venta;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase Venta con una extencion de crud 
+ * @author Ronald Pico
  */
 public interface VentaDAO extends Crud<Venta, Integer>{
   
     /**
      *
-     * @param venta
-     * @param lineas
+     * @param venta numero de producto vendido
+     * @param lineas 
      * @return
      */
     int crearVenta(Venta venta, List<LineaVenta> lineas);

@@ -120,7 +120,7 @@ public class AutorDAOImpl implements AutorDAO {
     /**
      *Elimina un autor de la lista 
      * @param idAutor identificador unico de autor 
-     * @returnv la lista sin el autor eliminafdo 
+     * @return la lista sin el autor eliminafdo 
      */
     @Override 
     public boolean eliminar(Integer idAutor) {

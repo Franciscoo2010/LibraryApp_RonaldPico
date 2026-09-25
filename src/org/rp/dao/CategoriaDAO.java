@@ -7,8 +7,8 @@ package org.rp.dao;
 import org.rp.model.Categoria;
 
 /**
- *
- * @author informatica
+ * se crea la clase CategoriaDAO
+ * @author Ronald Pico
  */
 public interface CategoriaDAO extends Crud<Categoria, Integer>{
     

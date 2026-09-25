@@ -5,21 +5,21 @@
 package org.rp.execption;
 
 /**
- *
- * @author USUARIO
+* Excepción personalizada para manejar los errores ocurridos en la capa DAO.
+* @author Ronald Pico 
  */
 public class DaoException extends RuntimeException {
 
     /**
-     *
-     * @param mensaje
+     *nos devuelve el mensaje cuando pas el eeror 
+     * @param mensaje tipo de texto que regresa 
      */
     public DaoException(String mensaje) {
         super(mensaje);
     }
 
     /**
-     *
+     *Mensaje se devuelve la causa del error 
      * @param mensaje
      * @param causa
      */

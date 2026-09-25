@@ -7,7 +7,7 @@ package org.rp.dao;
 import org.rp.model.Autor;
 
 /**
- *
+ *se ccrea la clase autor dao para la entidad Autor DAo  
  * @author Ronald Pico
  */
 public interface AutorDAO extends Crud<Autor, Integer> {

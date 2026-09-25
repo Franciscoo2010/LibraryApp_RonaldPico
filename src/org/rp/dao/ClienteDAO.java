@@ -7,8 +7,8 @@ package org.rp.dao;
 import org.rp.model.Cliente;
 
 /**
- *
- * @author informatica
+ * se crea la clase ClienteDao
+ * @author Ronald pico
  */
 public interface ClienteDAO extends Crud<Cliente, Long> {
     

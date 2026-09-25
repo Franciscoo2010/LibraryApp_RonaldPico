@@ -5,8 +5,8 @@
 package org.rp.dao;
 
 /**
- *
- * @author USUARIO
+ * se crea la clase dao con la variable T y K
+ * @author Ronald Pico
  */
 
 public interface Dao<T, K> extends Crud<T, K> {

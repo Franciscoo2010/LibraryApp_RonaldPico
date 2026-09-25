@@ -7,8 +7,8 @@ package org.rp.dao;
 import org.rp.model.AutorLibro;
 
 /**
- *
- * @author
+ * se crea la clase autorlibroDAO
+ * @author Ronald Pico
  */
 public interface AutorLibroDAO  extends Crud<AutorLibro, Integer>{
     

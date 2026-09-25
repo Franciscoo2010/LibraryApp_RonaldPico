@@ -5,73 +5,72 @@
 package org.rp.dao;
 
 /**
- *
- * @author USUARIO
+ * se crea la clse usuario con sus datos 
+ * @author Ronald Pico
  */
 
 import java.util.ArrayList;
 import org.rp.model.Usuario;
-
 /**
- *
- * @author aruba
+ * se crea la clse usuario con sus datos 
+ * @author Ronald Pico
  */
 public interface UsuarioDAO {
 
     /**
-     *
-     * @param usernarme
-     * @param passwordHash
-     * @return
+     * inicio de ssesion 
+     * @param usernarme usuario con nombre del usuario 
+     * @param passwordHash contraseña del suaurio inisiaso 
+     * @return nos regrea el nombre y la comntra 
      */
     public Usuario iniciarSesion(String usernarme, String passwordHash);
 
-    /**
-     *
-     * @param usuario
-     * @return
+    /** 
+     * creacion del usuarioo 
+     * @param usuario nombre o el objeto con el que se incia sesion
+     * @return nos devuelve el usuario creado 
      */
     public boolean crearUsuario(Usuario usuario);
 
     /**
-     *
-     * @param usuario
-     * @return
+     * actualiza el ususario 
+     * @param usuario nombre o el objeto con el que se incia sesion
+     * @return nos devuelve el usuario 
      */
     public boolean actualizarUsuario(Usuario usuario);
 
     /**
-     *
-     * @param idUsuario
-     * @param passwordHash
-     * @return
+     *Cambio de contraseña 
+     * @param idUsuario identificador unico del usuario 
+     * @param passwordHash contraseña del user 
+     * @return nos regresa la nueva contraseña 
      */
     public boolean cambiarPassword(int idUsuario, String passwordHash);
 
     /**
-     *
-     * @param idUsuario
-     * @return
+     * Desactivar el Usario  
+     * @param idUsuario identificador unico del usuario
+     * @return nos devuelve un usuafio menos 
      */
     public boolean desactivarUsuario(int idUsuario);
 
     /**
-     *
+     * elimina el Usuario  
      * @param idUsuario
      * @return
      */
     public boolean eliminarUsuario(int idUsuario);
 
     /**
-     *
-     * @return
+     *Lista todos los usuarios 
+     * @return la lista de los usuaruios 
      */
     public ArrayList<Usuario> listarTodosUsuarios();
 
     /**
-     *
-     * @param idUsuario
-     * @return
+     *busca por id el usuario 
+     * @param idUsuario identificador unico 
+     * @return ide del usaurio 
      */
     public Usuario obtenerUsuarioPorId(int idUsuario);
 }
