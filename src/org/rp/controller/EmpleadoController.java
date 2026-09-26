@@ -16,6 +16,10 @@ import org.rp.system.Principal;
 import org.rp.manager.SesionContext;
 import org.w3c.dom.events.MouseEvent;
 
+/**
+ *
+ * @author ronald pico
+ */
 public class EmpleadoController implements Initializable {
 
     @FXML private Label lblBienvenida;
@@ -39,6 +43,11 @@ public class EmpleadoController implements Initializable {
 
     private Usuario usuarioActual;
 
+    /**
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usuarioActual = SesionContext.getInstancia().getUsuarioActual();
@@ -59,67 +68,119 @@ public class EmpleadoController implements Initializable {
         return texto.substring(0, 1).toUpperCase() + texto.substring(1).toLowerCase();
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
         navegar("/org/rp/view/fxml/InicioSesionView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void irAInventario(ActionEvent evento) {
         navegar("/org/rp/view/fxml/InventarioView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void irALibro(ActionEvent evento) {
         navegar("/org/rp/view/fxml/LibroView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void irAAutor(ActionEvent evento) {
         navegar("/org/rp/view/fxml/AutorView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void irACategoria(ActionEvent evento) {
         navegar("/org/rp/view/fxml/CategoriaView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void irAEditorial(ActionEvent evento) {
         navegar("/org/rp/view/fxml/EditorialView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void irAClientes(ActionEvent evento) {
         navegar("/org/rp/view/fxml/ClienteView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void verInventario(MouseEvent evento) {
         navegar("/org/rp/view/fxml/InventarioView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void nuevoLibro(MouseEvent evento) {
         navegar("/org/rp/view/fxml/LibroView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void nuevoAutor(MouseEvent evento) {
         navegar("/org/rp/view/fxml/AutorView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void nuevaCategoria(MouseEvent evento) {
         navegar("/org/rp/view/fxml/CategoriaView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void nuevaEditorial(MouseEvent evento) {
         navegar("/org/rp/view/fxml/EditorialView.fxml");
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void nuevoCliente(MouseEvent evento) {
         navegar("/org/rp/view/fxml/ClienteView.fxml");
