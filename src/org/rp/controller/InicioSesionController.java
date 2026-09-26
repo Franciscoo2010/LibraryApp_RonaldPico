@@ -19,6 +19,10 @@ import org.rp.model.Usuario;
 import org.rp.system.Principal;
 import org.rp.util.SecurityUtil;
 
+/**
+ *
+ * @author USUARIO
+ */
 public class InicioSesionController implements Initializable {
 
     @FXML
@@ -32,6 +36,11 @@ public class InicioSesionController implements Initializable {
 
     private UsuarioDAO usuarioDAO;
 
+    /**
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usuarioDAO = new UsuarioDAOImpl();
@@ -40,6 +49,10 @@ public class InicioSesionController implements Initializable {
         txtPassword.setOnAction(this::eventoInicioSesion);
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void eventoInicioSesion(ActionEvent evento) {
         try {
@@ -65,6 +78,10 @@ public class InicioSesionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param evento
+     */
     @FXML
     public void eventoRegistrarse(ActionEvent evento) {
         try {
