@@ -3,28 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/FacturaDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/Dao.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/Empy</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/util/SecurityUtil.java</file>
+            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/controller/UsuarioController.java</file>
             <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/system/Principal.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/.gitignore</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/Crud.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/model/DetalleVenta.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/EditorialDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/EditorialDAO.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/LibroDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/VentaDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/ClienteDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/UsuarioDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/DetalleVentaDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/ClienteDAO.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/AutorLibroDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/model/LineaVenta.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/UsuarioDAO.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/AutorDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/impl/CategoriaDAOImpl.java</file>
-            <file>file:/C:/ronald_pico/bim_cuatro/s_seis/LibraryApp_RonaldPico/src/org/rp/dao/DetalleVentaDAO.java</file>
         </group>
     </open-files>
 </project-private>
