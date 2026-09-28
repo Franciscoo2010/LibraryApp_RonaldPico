@@ -18,8 +18,6 @@ import org.rp.system.Principal;
 
 public class FacturaController implements Initializable {
 
-    //Mecanismo del proyecto: no hay paso de datos entre vistas, se usa un campo
-    //estatico que ListaVentasController setea antes de abrir la vista.
     private static int noVentaSeleccionada;
 
     public static void setNoVentaSeleccionada(int noVenta) {
@@ -79,7 +77,6 @@ public class FacturaController implements Initializable {
                 mostrarError("No se encontró la factura de la venta " + noVentaSeleccionada + ".");
                 return;
             }
-            //La primera fila trae el encabezado repetido; se usa para llenar los labels.
             LineaFactura encabezado = lineasFactura.get(0);
             lblNoFactura.setText("# " + encabezado.getNumeroFactura());
             lblFecha.setText(encabezado.getFechaEmision());
@@ -97,8 +94,7 @@ public class FacturaController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            //Regresa a la lista de ventas (origen de la factura), no al dashboard.
-            Principal.cambiarEscena("/org/ac/view/fxml/ListaVentasView.fxml");
+            Principal.cambiarEscena("/org/rp/view/fxml/ListaVentasView.fxml");
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
