@@ -1,7 +1,7 @@
 
 package org.rp.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  * se crea la clase Usuario se definen  los atributos 

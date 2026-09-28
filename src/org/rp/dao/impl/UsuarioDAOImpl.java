@@ -15,7 +15,7 @@ import org.rp.dao.UsuarioDAO;
 import org.rp.execption.DaoException;
 import org.rp.model.Usuario;
 import org.rp.util.Conexion;
-import org.sql.Timestamp;
+import java.sql.Timestamp;
 
 /**
  * se crea la clase UsuarioDaoImpl y implementa la interface UsuarioDAO
