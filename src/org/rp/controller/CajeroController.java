@@ -5,21 +5,17 @@
 package org.rp.controller;
 
 
-import java.awt.Button;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.lang.classfile.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.event.ActionEvent;
-import java.fxml.FXML;
-import java.fxml.Initializable;
-import java.scene.control.Alert;
-import java.scene.control.Button;
-import java.scene.control.ButtonType;
-import java.scene.control.Label;
-import java.scene.input.MouseEvent;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import org.rp.model.Usuario;
@@ -32,19 +28,16 @@ public class CajeroController implements Initializable {
     @FXML private Label lblRol;
     @FXML private Button btnCerrarSesion;
     @FXML private Circle avatarCircle;
-
     @FXML private Button btnVenta;
     @FXML private Button btnDetalleVenta;
     @FXML private Button btnListaVentas;
     @FXML private Button btnInventario;
-
     @FXML private VBox cardAgregarVenta;
     @FXML private VBox cardDetalleVenta;
     @FXML private VBox cardListaVentas;
     @FXML private VBox cardVerInventario;
 
     private Usuario usuarioActual;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usuarioActual = SesionContext.getInstancia().getUsuarioActual();
@@ -68,47 +61,47 @@ public class CajeroController implements Initializable {
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
-        navegar("/org/ac/view/fxml/InicioSesionView.fxml");
+        navegar("/org/rp/view/fxml/InicioSesionView.fxml");
     }
 
     @FXML
     public void irAVenta(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/VentaView.fxml");
+        navegar("/org/rp/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void irADetalleVenta(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/rp/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void irAListaVentas(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
+        navegar("/org/rp/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void irAInventario(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+       navegar("/org/rp/view/fxml/InventarioView.fxml");
     }
 
     @FXML
     public void agregarVenta(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/VentaView.fxml");
+        navegar("/org/rp/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void detalleVenta(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/rp/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void listaVentas(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
+        navegar("/org/rp/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void verInventario(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        navegar("/org/rp/view/fxml/InventarioView.fxml");
     }
 
     private void navegar(String ruta) {
