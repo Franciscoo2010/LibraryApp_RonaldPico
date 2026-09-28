@@ -4,12 +4,7 @@
  */
 package org.rp.controller;
 
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.classfile.Label;
-import java.net.URL;
-import java.util.ResourceBundle;
 import org.rp.dao.UsuarioDAO;
 import org.rp.dao.impl.UsuarioDAOImpl;
 import org.rp.execption.DaoException;
@@ -18,6 +13,17 @@ import org.rp.manager.SesionContext;
 import org.rp.model.Usuario;
 import org.rp.system.Principal;
 import org.rp.util.SecurityUtil;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  *
